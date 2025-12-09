@@ -10,14 +10,14 @@ config <- dpconf_get(project_path = ".")
 s3_daap_board <- dp_connect(board_params = config$board_params, creds = config$creds)
 
 # Or set up board creds manually
-my_creds <- fn_dry(creds_set_aws(
+my_creds <- creds_set_aws(
   key=Sys.getenv("AWS_ACCESS_KEY_ID"),
   secret=Sys.getenv("AWS_SECRET_ACCESS_KEY")
-))
-my_board_params <- fn_dry(board_params_set_s3(
+)
+my_board_params <- board_params_set_s3(
   bucket_name="mybucket",
   region="us-east-1"
-))
+)
 s3_daap_board <- dp_connect(board_params = my_board_params, creds = mycreds)
 
 # List what's available
