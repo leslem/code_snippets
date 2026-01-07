@@ -4,6 +4,7 @@ dt_dom <- glue(
     "<'row'<'col-sm-12'tr>>"
 )
 options(DT.options = list(pageLength = 10, dom=dt_dom, lengthMenu=c(5, 10, 20, 40)))
+options(DT.fillContainer=TRUE)
 tbcap_cls <- "bg-info"
 ## Set variables for tracking table and figure numbers.
 tabN <- 0
