@@ -23,7 +23,7 @@ s3_daap_board <- dp_connect(board_params = my_board_params, creds = mycreds)
 # List what's available
 dplyr::glimpse(dp_list(s3_daap_board))
 
-available_dps <- dpi::dp_list(s3_daap_board) %>% arrange(desc(last_deployed))
+available_dps <- dpi::dp_list(s3_daap_board) |> arrange(desc(last_deployed))
 DT::datatable(available_dps)
 
 my_daap <- dp_get(s3_daap_board, data_name = available_dps$dp_name[1])
