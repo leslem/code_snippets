@@ -3,20 +3,23 @@ library(daapr)
 # Make sure GitHub PAT is set as env var
 Sys.getenv("GITHUB_PAT") != ""
 # Set AWS env vars using AWS profile secrets file
-aws.signature::use_credentials(profile="myprofile")
+aws.signature::use_credentials(profile = "myprofile")
 
 # Use config from the daap repo
 config <- dpconf_get(project_path = ".")
-s3_daap_board <- dp_connect(board_params = config$board_params, creds = config$creds)
+s3_daap_board <- dp_connect(
+  board_params = config$board_params,
+  creds = config$creds
+)
 
 # Or set up board creds manually
 my_creds <- creds_set_aws(
-  key=Sys.getenv("AWS_ACCESS_KEY_ID"),
-  secret=Sys.getenv("AWS_SECRET_ACCESS_KEY")
+  key = Sys.getenv("AWS_ACCESS_KEY_ID"),
+  secret = Sys.getenv("AWS_SECRET_ACCESS_KEY")
 )
 my_board_params <- board_params_set_s3(
-  bucket_name="mybucket",
-  region="us-east-1"
+  bucket_name = "mybucket",
+  region = "us-east-1"
 )
 s3_daap_board <- dp_connect(board_params = my_board_params, creds = mycreds)
 

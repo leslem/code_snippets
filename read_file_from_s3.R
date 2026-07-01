@@ -7,14 +7,14 @@ mybucket <- "mybucket"
 
 # Read a SAS file from the s3 bucket
 mysas <- s3read_using(
-  object="path/to/my/sasfile.sas7bdat",
-  bucket=mybucket,
-  FUN=haven::read_sas
+  object = "path/to/my/sasfile.sas7bdat",
+  bucket = mybucket,
+  FUN = haven::read_sas
 )
 
 # Read a CSV file from the s3 bucket
 mycsv <- s3read_using(
-  object="path/to/my/sasfile.csv",
-  bucket=mybucket,
-  FUN=readr::read_csv
+  object = "path/to/my/sasfile.csv",
+  bucket = mybucket,
+  FUN = readr::read_csv
 )
